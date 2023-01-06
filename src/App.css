@@ -1,3 +1,11 @@
+.App {
+  background: #f2f2f2;
+  height: 100%;
+}
+
+.App.dark {
+  background: #202c36;
+}
 /* Navbar Styles */
 nav {
   color: #111517;
@@ -31,6 +39,13 @@ nav h1 {
   font-weight: 600;
   line-height: 22px;
   cursor: pointer;
+  border: 2px solid #111517;
+  border-radius: 5px;
+  padding: 8px 12px;
+}
+
+.dark .toggle-theme {
+  border-color: #fff;
 }
 
 .toggle-theme span {
@@ -38,10 +53,6 @@ nav h1 {
 }
 
 /* Countries Listing Styles */
-body .dark {
-  background: #202c36;
-}
-
 form {
   display: flex;
   justify-content: space-between;
@@ -68,6 +79,10 @@ form {
 .dark select {
   color: #fff;
   background: #2b3844;
+}
+
+.dark input::placeholder {
+  color: #fff;
 }
 
 select {
@@ -147,7 +162,7 @@ span:not(.bold) {
 
 /* Country Details Page */
 .country-page {
-  background: #f2f2f2;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   margin: 50px 80px;
@@ -160,6 +175,10 @@ section {
   align-items: center;
   gap: 120px;
   margin-top: 50px;
+}
+
+.dark section {
+  color: #fff;
 }
 
 .arrow {

@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import { Context } from '../components/Context';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons';
 
-export default function CountryDetails(props) {
+export default function CountryInfo(props) {
   const { countryId } = useParams();
-  const thisCountry = props.countries.find(
+
+  const { countries } = useContext(Context);
+
+  const thisCountry = countries.find(
     country => country.alpha3Code === countryId
   );
 
-  console.log(thisCountry);
-
   return (
-    <>
+    <div className={props.theme ? 'dark' : ''}>
       <Navbar theme={props.theme} handleClick={props.handleClick} />
-
       <main className="country-page">
         <Link to="/">
           <FontAwesomeIcon
@@ -38,11 +39,12 @@ export default function CountryDetails(props) {
                 </span>
 
                 <span className="bold">
-                  Population: <span>{thisCountry.population}</span>
+                  Population:{' '}
+                  <span>{thisCountry.population.toLocaleString()}</span>
                 </span>
 
                 <span className="bold">
-                  Region: <span>{thisCountry.population}</span>
+                  Region: <span>{thisCountry.region}</span>
                 </span>
 
                 <span className="bold">
@@ -76,7 +78,7 @@ export default function CountryDetails(props) {
               </div>
             </div>
 
-            {thisCountry.borders && (
+            {/* {thisCountry.borders && (
               <div className="">
                 <span className="bold borders">
                   Border Countries:{' '}
@@ -87,10 +89,10 @@ export default function CountryDetails(props) {
                   ))}
                 </span>
               </div>
-            )}
+            )} */}
           </div>
         </section>
       </main>
-    </>
+    </div>
   );
 }
