@@ -111,6 +111,12 @@ select::after {
   padding-right: 24px;
 }
 
+.dark select {
+  background-image: url(/arrow-white.svg);
+  background-repeat: no-repeat;
+  background-position: 88%;
+}
+
 /* Countries Home Styles */
 .homepage {
   background: #f2f2f2;
@@ -263,4 +269,43 @@ section img {
   border-radius: 2px;
   padding: 6px 0;
   text-align: center;
+}
+
+.dark .border {
+  background: #2b3844;
+}
+
+/* Media Queries Styles */
+@media all and (min-width: 0px) and (max-width: 480px) {
+  nav {
+    padding: 30px 16px;
+    width: 100%;
+  }
+
+  nav h1 {
+    font-size: 1.4rem;
+  }
+
+  .toggle-theme {
+    font-size: 1.2rem;
+  }
+
+  form {
+    flex-direction: column;
+    gap: 40px;
+    margin: 0 16px;
+  }
+
+  .searchbar {
+    width: 313px;
+  }
+
+  .countries-listings {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 56px 30px;
+    gap: 40px;
+  }
 }
