@@ -14,6 +14,26 @@ export default function CountryInfo(props) {
     country => country.alpha3Code === countryId
   );
 
+  function currencies() {
+    let currencyArr = [];
+    if (thisCountry.currencies.length > 1) {
+      currencyArr = thisCountry.currencies.map(currency => currency.name);
+    } else {
+      currencyArr.push(thisCountry.currencies[0].name);
+    }
+    return currencyArr;
+  }
+
+  function languages() {
+    let languagesArr = [];
+    if (thisCountry.languages.length > 1) {
+      languagesArr = thisCountry.languages.map(lang => lang.name);
+    } else {
+      languagesArr.push(thisCountry.languages[0].name);
+    }
+    return languagesArr;
+  }
+
   return (
     <div className={props.theme ? 'dark' : ''}>
       <Navbar theme={props.theme} handleClick={props.handleClick} />
@@ -62,34 +82,24 @@ export default function CountryInfo(props) {
                 </span>
 
                 <span className="bold">
-                  Currencies: <span>{thisCountry.currencies[0].name}</span>
+                  Currencies: <span>{currencies().join(', ')}</span>
                 </span>
 
                 <span className="bold">
-                  Languages:{' '}
-                  {thisCountry.languages.length > 1 ? (
-                    thisCountry.languages.map(item => (
-                      <span key={item.name}>{item.name}</span>
-                    ))
-                  ) : (
-                    <span>{thisCountry.languages[0].name}</span>
-                  )}
+                  Languages: <span>{languages().join(', ')}</span>
                 </span>
               </div>
             </div>
-
-            {/* {thisCountry.borders && (
-              <div className="">
-                <span className="bold borders">
-                  Border Countries:{' '}
-                  {thisCountry.borders.map((item, ind) => (
-                    <span className="border" key={ind}>
-                      {item}
-                    </span>
-                  ))}
-                </span>
-              </div>
-            )} */}
+            {thisCountry.borders && (
+              <span className="bold borders">
+                Border Countries:{' '}
+                {thisCountry.borders.map((item, ind) => (
+                  <span className="border" key={ind}>
+                    <Link to={`/${item}`}>{item}</Link>
+                  </span>
+                ))}
+              </span>
+            )}
           </div>
         </section>
       </main>

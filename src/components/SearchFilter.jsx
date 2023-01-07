@@ -1,6 +1,7 @@
 import React, { useContext, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { Context } from './Context';
 
 export default function SearchFilter(props) {
@@ -12,7 +13,7 @@ export default function SearchFilter(props) {
   async function handleSearch() {
     const searchValue = countrySearchValue.current.value;
 
-    if (searchValue) {
+    if (searchValue.trim()) {
       try {
         const response = await fetch(
           `https://restcountries.com/v2/name/${searchValue}`

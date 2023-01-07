@@ -8,7 +8,6 @@ function ContextProvider(props) {
     setDarkModeOn(prevState => !prevState);
   }
   const [countries, setCountries] = useState([]);
-  console.log(countries);
 
   return (
     <Context.Provider
