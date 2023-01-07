@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import CountryInfo from './pages/CountryInfo';
 
 function App() {
-  const { setCountries, isDarkMode, toggleTheme } = useContext(Context);
+  const { setCountries, darkModeOn, toggleTheme } = useContext(Context);
 
   useEffect(() => {
     fetch(`https://restcountries.com/v2/all`)
@@ -16,16 +16,16 @@ function App() {
   }, []);
 
   return (
-    <div className={`App ${isDarkMode ? 'dark' : ''}`}>
+    <div className={`App ${darkModeOn ? 'dark' : ''}`}>
       <Routes>
         <Route
           exact
           path="/"
-          element={<Home theme={isDarkMode} handleClick={toggleTheme} />}
+          element={<Home theme={darkModeOn} handleClick={toggleTheme} />}
         ></Route>
         <Route
           path="/:countryId"
-          element={<CountryInfo theme={isDarkMode} handleClick={toggleTheme} />}
+          element={<CountryInfo theme={darkModeOn} handleClick={toggleTheme} />}
         ></Route>
       </Routes>
     </div>

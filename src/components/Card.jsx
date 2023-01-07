@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Cards({ country }) {
+export default function Card({ country }) {
   return (
     <div className="card">
-      <img src={country.flag} />
+      <img src={country.flags.svg} />
 
       <div className="text">
         <Link to={`/${country.alpha3Code}`}>

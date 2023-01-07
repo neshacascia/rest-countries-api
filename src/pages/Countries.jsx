@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Cards from '../components/Cards';
+import Card from '../components/Card';
 import { Context } from '../components/Context';
 
 export default function Countries(props) {
@@ -9,7 +9,7 @@ export default function Countries(props) {
     <div className={`homepage ${props.theme ? 'dark' : ''}`}>
       <main className="countries-listings">
         {countries.map((country, ind) => {
-          return <Cards country={country} key={ind.toString()} />;
+          return <Card country={country} key={ind.toString()} />;
         })}
       </main>
     </div>

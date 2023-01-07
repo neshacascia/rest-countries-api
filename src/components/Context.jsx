@@ -2,10 +2,10 @@ import React, { createContext, useState } from 'react';
 const Context = createContext();
 
 function ContextProvider(props) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [darkModeOn, setDarkModeOn] = useState(false);
 
   function toggleTheme() {
-    setIsDarkMode(prevState => !prevState);
+    setDarkModeOn(prevState => !prevState);
   }
   const [countries, setCountries] = useState([]);
   console.log(countries);
@@ -15,7 +15,7 @@ function ContextProvider(props) {
       value={{
         countries,
         setCountries,
-        isDarkMode,
+        darkModeOn,
         toggleTheme,
       }}
     >

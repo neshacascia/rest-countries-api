@@ -12,10 +12,10 @@ export default function SearchFilter(props) {
     const searchValue = countrySearchValue.current.value;
     console.log(searchValue);
 
-    if (searchValue.trim()) {
+    if (searchValue) {
       try {
         const response = await fetch(
-          `https://restcountries.com/v3.1/name/${searchValue}`
+          `https://restcountries.com/v2/name/${searchValue}`
         );
         const data = await response.json();
         setCountries(data);
