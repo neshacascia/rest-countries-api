@@ -1,7 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { Context } from './Context';
 
 export default function SearchFilter(props) {
