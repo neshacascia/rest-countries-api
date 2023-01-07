@@ -12,6 +12,7 @@ This app pulls data from the REST Countries API to display information about var
 - React
 - React Router v6
 - Vite
+- [REST Countries API](https://restcountries.com/)
 
 ## Features
 - See all countries from the API on the homepage
