@@ -13,11 +13,11 @@ export default function Navbar(props) {
 
       <div className="toggle-theme" onClick={props.handleClick}>
         {props.theme ? (
-          <FontAwesomeIcon icon={faMoon} />
-        ) : (
           <FontAwesomeIcon icon={faSun} />
+        ) : (
+          <FontAwesomeIcon icon={faMoon} />
         )}
-        <span>{props.theme ? 'Dark' : 'Light'} Mode</span>
+        <span>{props.theme ? 'Light' : 'Dark'} Mode</span>
       </div>
     </nav>
   );

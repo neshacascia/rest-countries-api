@@ -90,6 +90,7 @@ export default function CountryInfo(props) {
                 </span>
               </div>
             </div>
+
             {thisCountry.borders && (
               <span className="bold borders">
                 Border Countries:{' '}
