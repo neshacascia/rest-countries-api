@@ -38,7 +38,7 @@ export default function CountryInfo(props) {
     <div className={props.theme ? 'dark' : ''}>
       <Navbar theme={props.theme} handleClick={props.handleClick} />
       <main className="country-page">
-        <Link to="/">
+        <Link to="/" className="back-btn">
           <FontAwesomeIcon
             icon={faArrowLeftLong}
             className="arrow"
@@ -94,11 +94,13 @@ export default function CountryInfo(props) {
             {thisCountry.borders && (
               <span className="bold borders">
                 Border Countries:{' '}
-                {thisCountry.borders.map((item, ind) => (
-                  <span className="border" key={ind}>
-                    <Link to={`/${item}`}>{item}</Link>
-                  </span>
-                ))}
+                <div className="border-countries">
+                  {thisCountry.borders.map((item, ind) => (
+                    <span className="border" key={ind}>
+                      <Link to={`/${item}`}>{item}</Link>
+                    </span>
+                  ))}
+                </div>
               </span>
             )}
           </div>

@@ -128,7 +128,9 @@ select::after {
 
 .countries-listings {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  /* grid-template-columns: repeat(4, 1fr); */
+  grid-template-columns: repeat(auto-fill, 264px);
+  justify-content: center;
   gap: 75px;
   margin: 48px 80px;
 }
@@ -259,8 +261,15 @@ section img {
 
 .borders {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 20px;
+}
+
+.border-countries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .border {
@@ -276,10 +285,46 @@ section img {
 }
 
 /* Media Queries Styles */
-@media all and (min-width: 0px) and (max-width: 480px) {
+@media all and (max-width: 1026px) {
+  section {
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    margin: 64px 28px;
+    gap: 44px;
+  }
+}
+
+@media all and (max-width: 850px) {
+  form {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+@media all and (max-width: 620px) {
+  .searchbar {
+    width: 343px;
+  }
+}
+
+@media all and (max-width: 580px) {
+  section img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media all and (max-width: 550px) {
   nav {
     padding: 30px 16px;
-    width: 100%;
+  }
+}
+
+@media all and (min-width: 0px) and (max-width: 480px) {
+  html,
+  body {
+    overflow-x: hidden;
   }
 
   nav h1 {
@@ -291,21 +336,42 @@ section img {
   }
 
   form {
+    width: 100vw;
     flex-direction: column;
     gap: 40px;
     margin: 0 16px;
+    padding: 0 16px;
   }
 
   .searchbar {
-    width: 313px;
+    width: 93%;
   }
 
   .countries-listings {
+    gap: 40px 0;
+  }
+
+  .country-page {
+    padding: 0;
+  }
+
+  .country-details {
     width: 100%;
-    display: flex;
+  }
+
+  .country-details h2 {
+    font-size: 2.2rem;
+    line-height: 3rem;
+    margin-bottom: 16px;
+  }
+
+  .top {
     flex-direction: column;
-    justify-content: center;
-    margin: 56px 30px;
-    gap: 40px;
+    gap: 32px;
+    margin-bottom: 34px;
+  }
+
+  .country-details span {
+    font-size: 1.4rem;
   }
 }
